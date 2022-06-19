@@ -1,0 +1,27 @@
+{
+  "name": "hid-barcode-scanner",
+  "version": "1.0.2",
+  "description": "A JavaScript library for using USB barcode scanners in NodeJS applications.",
+  "repository": "https://github.com/schmitty2535/hid-barcode-scanner",
+  "homepage": "https://github.com/schmitty2535/hid-barcode-scanner#readme",
+  "main": "hid-barcode-scanner.js",
+  "author": "Max Schmitt <ms.engineering@maxschmitty.com> (http://maxschmitty.com)",
+  "license": "MIT",
+  "dependencies": {
+    "events": "^3.3.0",
+    "lodash": "^4.17.21",
+    "node-hid": "^2.1.1"
+  },
+  "keywords": [
+    "node",
+    "usb",
+    "hid",
+    "scanner",
+    "barcode",
+    "dataMatrix",
+    "nodejs"
+  ],
+  "scripts": {
+    "test": "echo \"No test specified\""
+  }
+}
