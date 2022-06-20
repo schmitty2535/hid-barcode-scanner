@@ -5,6 +5,22 @@
 let HID                                      = require('node-hid');
 let _                                        = require('lodash');
 let events                                   = require('events');
+let pkg                                      = require('./package.json')
+const semver                                 = require('semver');
+let {exec}                                   = require("child_process");
+
+exec(`npm view ${pkg.name} version`, (error, stdout, stderr) => {
+     if (error) {
+          //console.log(error);
+     }else{
+          if(semver.lt(pkg.version,stdout)){
+               console.log(`Update available ${pkg.version} → ${stdout}`);
+               console.log(`Run npm i ${pkg.name}@latest to update`);
+          }else{
+               //console.log(`${pkg.name} is up to date`)
+          }
+     }
+});
 
 let defaultHidMap = {
      4: "A",

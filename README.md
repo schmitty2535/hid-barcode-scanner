@@ -3,6 +3,8 @@
 A JavaScript library for using USB barcode scanners in NodeJS applications.js.
 
 ## Version Information
++ 1.0.6 - Removed unnecessary console.logs
++ 1.0.5 - Introduced version checking.
 + 1.0.4 - Fixed bugs preventing the use of the getDevices function. This version also returns sting as all lowercase characters.
 
 
