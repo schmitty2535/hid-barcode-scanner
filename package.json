@@ -1,6 +1,6 @@
 {
   "name": "hid-barcode-scanner",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "description": "A JavaScript library for using USB barcode scanners in NodeJS applications.",
   "repository": "https://github.com/schmitty2535/hid-barcode-scanner",
   "homepage": "https://github.com/schmitty2535/hid-barcode-scanner#readme",

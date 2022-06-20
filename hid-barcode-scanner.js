@@ -72,9 +72,12 @@ class UsbScanner{
 
           if (_options.driverType) {
                HID.setDriverType(_options.driverType);
+               this.driverType = _options.driverType;
           } else {
                HID.setDriverType("hidraw");
+               this.driverType = "hidraw";
           }
+
 
           this.bufferOffset = _options.bufferOffset || 2;
           this.events = new events.EventEmitter();
@@ -93,7 +96,7 @@ class UsbScanner{
      }
 
      retrieveDevice(vendorId, productId, Device){
-          return getDevice(vendorId, productId);
+          return getDevices(vendorId, productId);
      }
 
      retrieveDeviceByPath(path, Device){
@@ -113,7 +116,7 @@ class UsbScanner{
                               barcode = bcodeBuffer.join("");
                               bcodeBuffer = [];
 
-                              this.emitDataScanned(barcode);
+                              this.emitDataScanned(barcode.toLowerCase());
                          }
                     }
                });
@@ -144,12 +147,19 @@ class UsbScanner{
      }
 }
 
-function getDevice(vendorId, productId){
-     // console.log(humanInterfaceDevice.devices());
-     return _.find(HID.devices(), { 'vendorId': vendorId, 'productId': productId });
+function getDevices(vendorId, productId){
+     if(vendorId === undefined && productId === undefined){
+          return HID.devices();
+     }else{
+          return _.find(HID.devices(), { 'vendorId': vendorId, 'productId': productId });
+     }
 }
 function getDeviceByPath(path){
-     return _.find(HID.devices(), { 'path': path });
+     if(path === undefined){
+          HID.devices()
+     }else{
+          return _.find(HID.devices(), { 'path': path });
+     }
 }
 
-module.exports = { UsbScanner, getDevice, getDeviceByPath }
+module.exports = { UsbScanner, getDevices, getDeviceByPath }
